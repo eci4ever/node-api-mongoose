@@ -18,12 +18,12 @@ app.use(morgan('dev')) //logging middleware
 const authRoute = require('./router/auth')
 const postRoute = require('./router/post')
 const productRoute = require('./router/products')
-const ordersRoute = require('./router/orders')
+const orderRoute = require('./router/orders')
 
 //Route Middleware
 app.use('/api/user', authRoute)
 app.use('/api/post', postRoute)
 app.use('/api/products', productRoute)
-app.use('/api/orders', ordersRoute)
+app.use('/api/orders', orderRoute)
 
 app.listen(3000, () => console.log('Server up and running'))
