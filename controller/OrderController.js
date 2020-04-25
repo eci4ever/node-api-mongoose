@@ -56,7 +56,7 @@ module.exports.order_update = async (req, res, next) => {
 
 module.exports.order_delete = async (req, res, next) => {
     try {
-        const delOrder = await Order.remove({ _id: req.params.id })
+        const delOrder = await Order.deleteOne({ _id: req.params.id })
         res.status(200).send({ deletedOrder: delOrder, deletedCount: delOrder.deletedCount })
     } catch (err) {
         res.status(400).send(err)

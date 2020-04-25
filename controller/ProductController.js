@@ -56,7 +56,7 @@ module.exports.product_update = async (req, res, next) => {
 
 module.exports.product_delete = async (req, res, next) => {
     try {
-        const delProduct = await Product.remove({ _id: req.params.id })
+        const delProduct = await Product.deleteOne({ _id: req.params.id })
         res.status(200).send({ deletedProduct: delProduct, deletedCount: delProduct.deletedCount })
     } catch (err) {
         res.status(400).send(err)
