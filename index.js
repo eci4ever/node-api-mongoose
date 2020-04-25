@@ -13,6 +13,7 @@ mongoose.connect(process.env.DB_CONNECT, { useNewUrlParser: true, useUnifiedTopo
 //Middleware
 app.use(express.json())
 app.use(morgan('dev')) //logging middleware
+app.use('/uploads', express.static('uploads'))
 
 //Import route
 const authRoute = require('./router/auth')
@@ -21,7 +22,7 @@ const productRoute = require('./router/products')
 const orderRoute = require('./router/orders')
 
 //Route Middleware
-app.use('/api/user', authRoute)
+app.use('/api/user', authRoute) // Login and Register route
 app.use('/api/post', postRoute)
 app.use('/api/products', productRoute)
 app.use('/api/orders', orderRoute)
